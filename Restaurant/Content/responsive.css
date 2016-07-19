@@ -1,0 +1,61 @@
+﻿@media only screen and (min-width:1920px) {
+    
+}
+@media only screen and (min-width:1366px) {
+   
+}
+@media only screen and (max-width:1366px) {
+
+}
+@media only screen and (max-width:1200px) {
+   
+}
+@media only screen and (max-width:1100px) {
+   .menuList div {min-height:150px;}
+   .contactMap iframe {height:595px;}
+}
+@media only screen and (max-width:1000px) {
+    
+}
+@media only screen and (max-width:930px) {
+   .logo img {width:100%;}
+   .navigation li {font-size:13px; padding:0px;}
+   .navigation li a {padding:5px 5px;}
+   .container .jumbotron, .container-fluid .jumbotron {padding:20px 25px;}
+    .contactMap iframe {height:585px;}
+    .bannerInner, .bannerAdmin, .bannerOrder {max-height:165px; height:165px;}
+    .bannerInner h2, .bannerAdmin h2, .bannerOrder h2 {margin-top:90px;}
+    .banner {max-height:300px; height:300px;}
+    .banner h2 {margin-top:110px;}
+}
+@media only screen and (max-width:780px) {
+   
+}
+@media only screen and (max-width:750px) {
+    
+}
+@media only screen and (max-width:690px) {
+   .bodyContent {padding-bottom:105px;}
+   .logo img {width:100%; margin-top:0px;}
+   .navbar-collapse {border-top:none; padding:0px;}
+   .navigation {padding:0px; margin:10px 0px 0px; float:none; left:0; text-align:left;}
+   .navigation > li {display:block; border-left:none; padding:2px 0px; float:none; left:0;}
+   .navigation li a { padding: 5px 20px 5px 20px; }
+   .banner { height:300px; max-height:300px; padding-top:10px;}
+   .bannerInner, .bannerAdmin, .bannerOrder { height:150px; max-height:150px; padding-top:10px;}
+   .banner h2 {font-size:24px; margin-top:100px;}
+   .bannerInner h2, .bannerAdmin h2, .bannerOrder h2 {font-size:22px; margin-top:75px;}
+   .aboutImg {float:none; width:100%; margin:0px 0px 30px;}
+   .container .jumbotron, .container-fluid .jumbotron {padding:20px;}
+   .contactMap {margin-top:15px; padding-top:25px; border-top:1px solid #ccc;}
+   .contactMap iframe {height:300px;}
+}
+@media only screen and (max-width:590px) {
+        
+}
+@media only screen and (max-width:468px) {
+    
+}
+@media only screen and (max-width:320px) {
+    .banner .priceTag {width:70px;}
+}

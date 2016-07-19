@@ -1,0 +1,192 @@
+﻿@using Restaurant.Repository
+
+@{
+
+    ICategoryRepository iCategoryRepository = new CategoryRepository();
+    IProductRepository iProductRepository = new ProductRepository();
+}
+
+@section banner {
+    <div class="bannerOrder">
+        <div class="container">
+            <div class="row">
+                <h2>Our Taste</h2>
+            </div>
+        </div>
+    </div>
+}
+<h2>Order Online</h2>
+<div class="barLine"></div>
+
+<div class="container">
+    <div class="row">
+        <style>
+            h4 {
+                text-align: center;
+            }
+        </style>
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 class="ordermenutop"> Menu</h4>
+
+            <div id="item_title" class="sidemenubar">
+                <ul class="menu-category">
+                    @foreach (var category in iCategoryRepository.findAll())
+                    {
+                        <li>
+                            <a class="catbyid" href="@Url.Action("Categroy", "Product", new { id = category.id })">
+                                <h5>@category.Name</h5>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4 class="ordermenutop">Items</h4>
+            <div class="sidemenubar">
+                <ul class="menu-category">
+                    @*@foreach (var product in iProductRepository.LatestProd())
+                    {
+                        <li>@product.Image</li>
+                        <li>@product.Name</li>
+                        <li>@product.Price                       
+                        <input type="text" value="1" maxlength="2">
+                        <input type="button" value="+" onclick="javascript:AddToCart('Book A', 14.95, 1);" /></li>
+                        <li><div class="fullbarLine"> </div></li>
+                    }*@
+
+                    @foreach (var product in iProductRepository.LatestProd())
+                    {
+                        <li>
+                            @product.Image
+                            <a class="catbyid">@product.Name</a>
+                            <h5> @product.Price</h5>
+                            <input type="text" value="1" maxlength="2">
+                            <button type="button" onclick="javascript:AddToCart();" id="btn1"><img src='@Url.Content("~/Content/Images/addbtn05.png")' /></button>
+                            <div class="fullbarLine"> </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h4 class="ordermenutop">Cart</h4>
+            <div class="sidemenubar">
+                <div id="div1">
+                </div>
+                <div>
+                    <ul id="CartItemList"></ul>
+                    <span>
+                        <strong>Sub Total : </strong>
+                    </span>
+                    <span id="TotalAmount">
+                        $0.00
+                    </span><br />
+                    <span>
+                        <strong>Service Tax</strong>
+                    </span><br />
+                    <span>
+                        <strong>Grand Total </strong>
+                    </span>
+                    <br />
+                    <span>
+                        <strong>Order Type</strong>
+                    </span><br />
+                    <span>
+                        <strong>Delivery Time</strong>
+                    </span><br />
+                    <a href="javascript:void(0);" onclick="javascript:PostData();">Proceed to Checkout</a>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script language="javascript" type="text/javascript">
+
+    //  Initialize the Shopping Cart object
+    var m_ShoppingCart = {OrderDetails: []
+    };
+
+    function AddToCart(ItemName, Price, Quantity) {
+
+        //  Add the item to the shopping cart object
+        m_ShoppingCart.CartItems.push({
+            "ItemName": ItemName,
+            "Price": Price.toFixed(2), //   Issue here if you don't specify the decimal place
+            "Quantity": Quantity
+        });
+
+        //  Render the shopping cart object
+        RenderShoppingCart();
+    }
+
+    function RenderShoppingCart() {
+
+        $("#CartItemList").html("");
+
+        var totalAmount = 0;
+
+        $.each(m_Order.CartItems, function (index, cartItem) {
+
+            var itemTotal = Number(cartItem.Price) * Number(cartItem.Quantity);
+            totalAmount += itemTotal;
+
+            $("#CartItemList").append("<li>" + cartItem.ItemName + " - $" + itemTotal.toFixed(2) + "</li>");
+        });
+
+        $("#TotalAmount").html("$" + totalAmount.toFixed(2));
+    }
+
+    function PostData() {
+        $.ajax({
+            url: '@Url.Content("~/Cart/Checkout")',
+            async: false,
+            type: "POST",
+            data: JSON.stringify(m_ShoppingCart),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR + "-" + textStatus + "-" + errorThrown);
+            },
+            success: function (data, textStatus, jqXHR) {
+                $("#Results").show();
+                $("#ResultMessage").html(data.Message);
+            }
+        });
+    }
+
+    function ResetForm() {
+
+        //  Reset the ui elements
+        $("#CartItemList").html("");
+        $("#TotalAmount").html("$0.00");
+        $("#ResultMessage").html("");
+
+        //  Hide the results
+        $("#Results").hide();
+
+        //  Enable all the 'Add to Cart' buttons
+        $("input").removeAttr("disabled");
+
+        //  Reset the Shopping Cart object
+        m_ShoppingCart.CartItems = [];
+    }
+
+</script>
+
+
+
+@* Ajax request for category *@
+
+@Ajax.ActionLink("Menu", // <-- Text to display
+                 "Category", // <-- Action Method Name
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "CustomerList", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })

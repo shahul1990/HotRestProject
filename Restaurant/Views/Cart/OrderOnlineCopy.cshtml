@@ -1,0 +1,185 @@
+﻿@using Restaurant.Repository
+@model IEnumerable<Restaurant.Models.ItemCategory>
+
+@{
+
+    ICategoryRepository iCategoryRepository = new CategoryRepository();
+    IProductRepository iProductRepository = new ProductRepository();
+}
+
+@section banner {
+    <div class="bannerOrder">
+        <div class="container">
+            <div class="row">
+                <h2>Our Taste</h2>
+            </div>
+        </div>
+    </div>
+}
+<h2>Order Online</h2>
+<div class="barLine"></div>
+
+<div class="container">
+    <div class="row">
+        <style>
+            h4 {        
+                text-align: center;
+            }
+        </style>
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 class="ordermenutop"> Menu</h4>
+            
+            <div id="item_title" class="sidemenubar">
+                <div class="toggle-content">
+                    @foreach (var category in iCategoryRepository.findAll())
+                        {
+                           
+                            <h5>
+                                <a class="category_name" href="#titleid"> @category.Name</a>
+                             </h5>
+                        }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+           
+                
+            <h4 class="ordermenutop">Items</h4>
+            <div class="sidemenubar">
+                <div class="container">
+                    <table>
+                        @foreach (var product in ViewBag.LatestProd)
+                        {
+                            <tr>
+                                <td id="@product.id">
+                                    <div class="itemImage">
+                                        <div class="divImg"><img src="@product.Image" height="150" width="150" /></div>
+                                        <div class="divIName">@product.Name</div>
+                                    </div>
+                                    <div class="itemDetails">
+                                        <div class="divPrice">Price : @product.Price</div>
+s                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                    @foreach (var product in ViewBag.LatestProd)
+                    {
+                        <div>
+                            <div class="list-image">
+                                <img style="width: 84px;height: 55px;padding: 1px;margin-top: 4px;border: 1px solid #ccc;" src='@Url.Content("~/Content/Images/img1.jpg")'>
+                            </div>
+                            <div class="all-details">
+                                <div class="visible-option">
+                                    <div class="details">
+                                        <div class="divIName">@product.Name</div>
+                                        @*<h5><a class="productname" href="#productid">@product.Name</a></h5>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="price-option">
+                                <div class="divPrice">Price: @product.Price</div>
+                            </div>
+                            <div class="divquantity">
+                                <input onkeypress="return isNumberKey(event)" value="1" maxlength="2" style="width:33px;text-align:center;border:1px solid grey;border-radius: 3px;" type="text">
+                                @*<a class="animation-fadeIn pull-right item_add btn-large btncc"  href="javascript:;" onclick="showwidget(this);"></a>*@
+                            </div>
+                            <div class="divAddCart">
+                                <img src='@Url.Content("~/Content/Images/addbtn05.png")' />
+                            </div>
+                        </div>
+                    }
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h4 class="ordermenutop">Cart</h4>
+            <div class="sidemenubar">
+              
+                <form method="post">
+                    <input type="submit" value="Insert" formaction="/home/new" />
+                    <br /><br />
+                
+                </form>
+                    <a href="#" class="displaylistobject">Categroy</a><br />
+                    <div>
+                        <ul id="CartItemList"></ul>
+                        <span>
+                            <strong>Sub Total : </strong>
+                        </span>
+                        <span id="TotalAmount">
+                            $0.00
+                        </span><br />
+                        <span>
+                            <strong>Service Tax</strong>
+                        </span><br />
+                        <span>
+                            <strong>Grand Total </strong>
+                        </span>
+                        <br />
+                        <span>
+                            <strong>Order Type</strong>
+                        </span><br />
+                        <span>
+                            <strong>Delivery Time</strong>
+                        </span><br />
+                        <a href="javascript:void(0);" onclick="javascript:PostData();">Proceed to Checkout</a>
+                    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+
+<script src="@Url.Content("~/Scripts/jquery-1.10.2.js")" type ="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger;
+        $('.displaylistobject').click(function () {
+            $.ajax({
+                type: 'POST',                        
+                contentType: 'application/json',
+                url: '@Url.Action("DisplayCategoryList", "Cart")',
+                data: '{}',
+                dataType: 'json',
+                success: function (result) {
+                    debugger;
+                    var s = 'Id:' + result.name100;
+                    $('#result4').html(s);
+                }
+            })
+        })
+
+        $('.titleid').click(function(){
+            $.ajax({
+                type: 'POST',
+                contentType: 'applicaiton/json',
+                url: '@Url.Action("LatestProd","ProductRepository")',
+                data: '{}',
+                dataType: 'json',
+                success: function (itemlist) {
+                    debugger;
+                }
+            })
+        })
+
+
+
+        $('.divAddCart').on('click', function () {
+            var getItemId =parseInt($(this).closest('td').prop('id'));
+            var getUserName = $('.divName').html();
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                url: 'Home/AddCart',
+                data: "{ 'itemId':' " + getItemId + "' }",
+                success: function (data) {
+                    $('#spnCart').html(data)
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        });
+    })
+</script>
