@@ -48,15 +48,36 @@ namespace Restaurant.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="id,Name,Description,Price,Image,CreatedDate,ModifiedDate,Quantity,Category_id")] ItemList itemlist)
+        public ActionResult Create([Bind(Include = "id,Name,Description,Price,Image,CreatedDate,ModifiedDate,Quantity,Category_id")] ItemList itemlist, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.ItemLists.Add(itemlist);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        var image = new File
+                        {
+                            FileName = System.IO.Path.GetFileName(upload.FileName),
+                            //FileType = Image,
+                            ContentType = upload.ContentType
+                        };
+                        using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                        {
+                            image.Content = reader.ReadBytes(upload.ContentLength);
+                        }
+                        //ItemList.Images = new List<File> { image };
+                    }
+                    db.ItemLists.Add(itemlist);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
+            catch (Exception ex) //(RetryLimitExceededException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            }
             ViewBag.Category_id = new SelectList(db.ItemCategories, "id", "Name", itemlist.Category_id);
             return View(itemlist);
         }
