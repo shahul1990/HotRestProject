@@ -1,11 +1,11 @@
 ﻿@using Restaurant.Repository
 @model IEnumerable<Restaurant.Models.ItemCategory>
 
-@{
+    @{
 
-    ICategoryRepository iCategoryRepository = new CategoryRepository();
-    IProductRepository iProductRepository = new ProductRepository();
-}
+        ICategoryRepository iCategoryRepository = new CategoryRepository();
+        IProductRepository iProductRepository = new ProductRepository();
+    }
 
 @section banner {
     <div class="bannerOrder">

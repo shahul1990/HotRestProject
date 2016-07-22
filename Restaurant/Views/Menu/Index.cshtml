@@ -1,0 +1,20 @@
+﻿@using Restaurant.Models;
+
+@model IEnumerable<Restaurant.Models.ItemCategory>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var category in Model)
+{
+    <li>@Html.ActionLink(category.Name, "Browse", new { category = category.id })</li>
+}
+
+@*@foreach (var items in Model)
+{
+    <li> @Html.ActionLink(items)</li>
+}*@

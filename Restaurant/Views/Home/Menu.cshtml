@@ -1,6 +1,6 @@
-﻿@{
-    ViewBag.Title = "Menu";
-}
+﻿@*@model IEnumerable<Restaurant.Models.ItemList>*@
+@using Restaurant.Repository
+
 @section banner {
     <div class="bannerInner">
         <div class="container">
@@ -10,19 +10,24 @@
         </div>
     </div>
 }
-<h2>Show Database value in DataTable</h2>
+
+@{
+
+    ICategoryRepository iCategoryRepository = new CategoryRepository();
+    IProductRepository iProductRepository = new ProductRepository();
+}
+
+@foreach (var category in iCategoryRepository.findAll())
+{                   
+    <h5><a href="#">@category.Name</a></h5>
+    
+}
+
+
+
 <div>
-    <div id="product" class="portfolioremove" data-option-key="filter">
-        <h2>
-            <a class="prolink" href="#filter" data-option-value="*">All <span> </span></a>
-            <a class="prolink" href="#filter" data-option-value=".Veg">Veg <span> </span></a>
-            <a class="prolink" href="#filter" data-option-value=".Non Veg">Non Veg </a>
-            <a class="prolink" href="#filter" data-option-value=".Drinks">Drinks</a>
-            <a class="prolink" href="#filter" data-option-value=".Deserts">Deserts </a>
-        </h2>
-    </div>
+
 </div>
 
-<h2> new code line</h2>
 
 
