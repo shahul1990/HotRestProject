@@ -13,10 +13,10 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Product", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ItemList</h4>
         <hr />
@@ -44,14 +44,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Price)
                 @Html.ValidationMessageFor(model => model.Price)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Image, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Image)
-                @Html.ValidationMessageFor(model => model.Image)
             </div>
         </div>
 
@@ -84,6 +76,14 @@
             <div class="col-md-10">
                 @Html.DropDownList("Category_id", String.Empty)
                 @Html.ValidationMessageFor(model => model.Category_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImagePath, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="upload" id="upload" style="width: 100%;" />
+                <input type="submit" value="upload" class="submit" /> 
             </div>
         </div>
 

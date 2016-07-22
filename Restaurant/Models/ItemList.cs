@@ -23,6 +23,8 @@ namespace Restaurant.Models
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public int Quantity { get; set; }
         public int Category_id { get; set; }
+        public string ImagePath { get; set; }
+        public string ImageText { get; set; }
     
         public virtual ItemCategory ItemCategory { get; set; }
     }

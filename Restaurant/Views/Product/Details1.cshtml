@@ -8,7 +8,7 @@
 
 <div>
     <h4>ItemList</h4>
-    <hr />
+	<hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -67,14 +67,18 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ImagePath)
+            @Html.DisplayNameFor(model => model.Image)
         </dt>
 
-        <dd>
-            <img src="@Html.DisplayFor(model =>model.ImagePath)" style="height:200px;width:200px;" />
-        </dd>
-
-
+        @if (Model.Files.Any(f => f.FileType == Restaurant.Models.FileType.Avatar))
+        {
+            <dt>
+                Avatar
+            </dt>
+            <dd>
+                <img src="~/File?id=@Model.Files.First(f => f.FileType == Restaurant.Models.FileType.Avatar).FileId" alt="avatar" />
+            </dd>
+        }
     </dl>
 </div>
 <p>

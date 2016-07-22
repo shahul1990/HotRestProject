@@ -197,6 +197,7 @@
     <Content Include="Content\Images\sec-veg-nood.jpg" />
     <Content Include="Content\Images\sezwan-chicken-fried-rice.jpg" />
     <Content Include="Content\Images\Tandoori-Non-Veg-Combo.jpg" />
+    <Content Include="Content\Images\Uploads\img4.jpg" />
     <Content Include="Content\Images\veg-fried-rice.jpg" />
     <Content Include="Content\online.css" />
     <Content Include="Content\responsive.css" />
@@ -283,10 +284,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\Views\User\all.js" />
-    <Content Include="Scripts\Views\User\create.js" />
-    <Content Include="Scripts\Views\User\detail.js" />
-    <Content Include="Scripts\Views\User\edit.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -309,9 +306,8 @@
     <Content Include="Views\Category\Details.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Create1.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Cart\OrderOnline.cshtml" />
@@ -321,6 +317,9 @@
     <Content Include="Views\Cart\categorylist.cshtml" />
     <Content Include="Views\Cart\Details.cshtml" />
     <Content Include="Views\Cart\_cartItem.cshtml" />
+    <Content Include="Views\Product\Details1.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
