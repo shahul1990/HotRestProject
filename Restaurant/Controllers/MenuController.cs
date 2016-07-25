@@ -15,22 +15,6 @@ namespace Restaurant.Controllers
         private IProductRepository iProductRepository = new ProductRepository();
         private ICategoryRepository iCategoryRepository = new CategoryRepository();
 
-        public class ProductsModel
-        {
-            public ProductsModel()
-            {
-                products = new List<ItemList>();
-                categories = new List<SelectListItem>();
-            }
-
-            public List<ItemList> products { get; set; }
-            public List<SelectListItem> categories { get; set; }
-
-            public int CategoryID { get; set; }
-
-        }
-
-
         // GET: /Menu/
         public ActionResult Index()
         {
@@ -38,13 +22,13 @@ namespace Restaurant.Controllers
             return View(categories);
         }
 
+        [HttpPost]
         public ActionResult Browse(int category)
         {
-            var categoryModel = db.ItemLists.Include("ItemCategory").All(c=>c.Category_id ==  category);
+            var categoryModel = db.ItemLists.Include("ItemCategory").Single(c=>c.Category_id ==  category);
             return View(categoryModel);
         }
 
-        
         
     }
 
