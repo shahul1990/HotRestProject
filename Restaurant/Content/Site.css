@@ -1,5 +1,5 @@
 ﻿@charset "utf-8";
-/* CSS Document */
+ CSS Document 
 
 * {margin:0px; padding:0px; list-style-type:none; outline:none !important;}
 
@@ -104,20 +104,20 @@ footer span {font-size:12px; color:#9c9c9c;}
 		}		
 		#food-type-filter li a.type-selected,
 		.type-selected{
-			/*height: 25px;
+			height: 25px;
 			padding-top: 10px;
-			text-decoration: underline;*/
+			text-decoration: underline;
 			background-image: url(images/active_tick.png);
 			background-repeat: no-repeat;
 			background-position: 10px center;
-			/*padding: 6px 12px 0 27px;*/
+			padding: 6px 12px 0 27px;
 			padding-left: 30px;
 		}
 		#food-type-filter li a.cat-active{
 			background-image: url(images/active_tick_dark.png);
 			background-repeat: no-repeat;
 			background-position: 10px center;
-			/*padding: 6px 12px 0 27px;*/
+			padding: 6px 12px 0 27px;
 			padding-left: 30px;
 		}
 		#food-type-filter li a#type-veg{
@@ -127,7 +127,7 @@ footer span {font-size:12px; color:#9c9c9c;}
 			background-color: #9c0001;
 		}
 		#food-type-filter li a.view_all{
-			/*background-color: #FA7FB1;*/
+			background-color: #FA7FB1;
 			background-color: #440000;
 			color: #fff;
 		}
@@ -136,7 +136,7 @@ footer span {font-size:12px; color:#9c9c9c;}
 		}
 
 
-        /*This is shahul,  trying something*/
+        This is shahul,  trying something
         .ordermenutop {background-color: #851C2D;
         padding: 10px;
         color: white;
@@ -187,7 +187,7 @@ padding: 10px;
 font-size: 16px !important;
     font-weight: 500;
     text-align: left;
-    /* border-bottom: 1px solid #ccc; */
+     border-bottom: 1px solid #ccc; 
     padding: 4px;
     background: white;
 }
@@ -391,3 +391,87 @@ font-size: 16px !important;
     transition-duration: 0s;
 }
 /* End: Recommended Isotope styles */
+
+
+
+#spnCart
+{
+    background:green;
+    color:White;
+    padding:5px;
+    border-radius:2px;
+}
+
+.cartDel
+{
+    background:red;
+    color:White;
+    padding:4px;
+    border-radius:3px;
+    cursor:pointer;
+}
+
+
+.divLogin
+{
+    border: 2px outset #6f6d6e;
+    margin: 90px;
+    padding: 20px;
+    width: 30%;
+}
+.divCart {
+    float: left;
+    width: 22%;
+}
+
+
+.itemImage {
+    display: block;
+    float: left;
+    height: 170px;
+    padding-left: 10px;
+    width: 150px;
+}
+
+.divImg {
+    width: 100%;
+}
+
+.divIName {
+    
+    color: #e31836;
+    padding-left: 5px;
+    text-align: left;
+}
+
+.itemDetails {
+    background: none repeat scroll 0 0 #c9c9c9;
+    float: left;
+    height: 164px;
+    padding-left: 10px;
+    padding-top: 5px;
+    width: 200px;
+}
+
+.divAddCart {
+    background: none repeat scroll 0 0 #008000;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    float: right;
+    padding: 2px;
+    width: 8%;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
