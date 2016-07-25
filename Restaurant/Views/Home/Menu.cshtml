@@ -1,6 +1,8 @@
 ﻿@*@model IEnumerable<Restaurant.Models.ItemList>*@
 @using Restaurant.Repository
-
+@{
+    ViewBag.Title = "Hot Touch Menu";
+}
 @section banner {
     <div class="bannerInner">
         <div class="container">
@@ -92,65 +94,215 @@
                     <h3>Raan</h3>
                 </div>
             </div>
+            <div class="productList listProduct kebabs" data-category="kebabs">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/4_thumb.jpg" alt="Tandoori Veg Platter" />
+                </div>
+                <div class="productDesc">
+                    <h3>Tandoori Veg Platter</h3>
+                </div>
+            </div>
+            <div class="productList listProduct kebabs" data-category="kebabs">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/5_thumb.jpg" alt="BBQ Chicken" />
+                </div>
+                <div class="productDesc">
+                    <h3>BBQ Chicken</h3>
+                </div>
+            </div>
+            <div class="productList listProduct kebabs" data-category="kebabs">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/16_thumb.jpg" alt="Chicken Shawarma Kabab" />
+                </div>
+                <div class="productDesc">
+                    <h3>Chicken Shawarma Kabab</h3>
+                </div>
+            </div>
             
             <div class="productList listProduct soups" data-category="soups">
                 <div class="productImg">
-                    <img src="~/Content/Images/menu/23_thumb.jpg" alt="Afghani Kabab" />
+                    <img src="~/Content/Images/menu/1_thumb.jpg" alt="Aatukal Soup" />
                 </div>
                 <div class="productDesc">
-                    <h3>Afghani Kabab</h3>
+                    <h3>Aatukal Soup</h3>
                 </div>
             </div>
-            <div class="productList listProduct soups" data-category="soups">
+            <div class="productList listProduct briyanis" data-category="briyanis">
                 <div class="productImg">
-                    <img src="~/Content/Images/menu/25_thumb.jpg" alt="Chicken Sheesh Tawk" />
+                    <img src="~/Content/Images/menu/13_thumb.jpg" alt="Chicken 65 Biriyani" />
                 </div>
                 <div class="productDesc">
-                    <h3>Chicken Sheesh Tawk</h3>
+                    <h3>Chicken 65 Biriyani</h3>
                 </div>
             </div>
-            <div class="productList listProduct soups" data-category="soups">
+            <div class="productList listProduct briyanis" data-category="briyanis">
                 <div class="productImg">
-                    <img src="~/Content/Images/menu/28_thumb.jpg" alt="Barbeque Pomfret" />
+                    <img src="~/Content/Images/menu/14_thumb.jpg" alt="Chicken Biriyani" />
                 </div>
                 <div class="productDesc">
-                    <h3>Barbeque Pomfret</h3>
+                    <h3>Chicken Biriyani</h3>
                 </div>
             </div>
-            <div class="productList listProduct soups" data-category="soups">
+            <div class="productList listProduct briyanis" data-category="briyanis">
                 <div class="productImg">
-                    <img src="~/Content/Images/menu/30_thumb.jpg" alt="Pepper Barbeque" />
+                    <img src="~/Content/Images/menu/15_thumb.jpg" alt="Mutton Biriyani" />
                 </div>
                 <div class="productDesc">
-                    <h3>Pepper Barbeque</h3>
+                    <h3>Mutton Biriyani</h3>
                 </div>
             </div>
-            <div class="productList listProduct soups" data-category="soups">
+            <div class="productList listProduct fish" data-category="fish">
                 <div class="productImg">
-                    <img src="~/Content/Images/menu/33_thumb.jpg" alt="Raan" />
+                    <img src="~/Content/Images/menu/27_thumb.jpg" alt="Tawa Meen Roast" />
                 </div>
                 <div class="productDesc">
-                    <h3>Raan</h3>
+                    <h3>Tawa Meen Roast</h3>
+                </div>
+            </div>
+            <div class="productList listProduct fish" data-category="fish">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/4_thumb.jpg" alt="Phuket Fish" />
+                </div>
+                <div class="productDesc">
+                    <h3>Phuket Fish</h3>
+                </div>
+            </div>
+            <div class="productList listProduct fish" data-category="fish">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/36_thumb.jpg" alt="Eral Sukka" />
+                </div>
+                <div class="productDesc">
+                    <h3>Eral Sukka</h3>
+                </div>
+            </div>
+            <div class="productList listProduct fish" data-category="fish">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/37_thumb.jpg" alt="Fish Sukka" />
+                </div>
+                <div class="productDesc">
+                    <h3>Fish Sukka</h3>
+                </div>
+            </div>
+            <div class="productList listProduct fish" data-category="fish">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/41_thumb.jpg" alt="Pomfret Polichadu" />
+                </div>
+                <div class="productDesc">
+                    <h3>Pomfret Polichadu</h3>
+                </div>
+            </div>
+
+            <div class="productList listProduct starters" data-category="starters">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/38_thumb.jpg" alt="Golden Fried Babycorn" />
+                </div>
+                <div class="productDesc">
+                    <h3>Golden Fried Babycorn</h3>
+                </div>
+            </div>
+
+            <div class="productList listProduct tawa" data-category="tawa">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/24_thumb.jpg" alt="Butter fly Chicken" />
+                </div>
+                <div class="productDesc">
+                    <h3>Butter fly Chicken</h3>
+                </div>
+            </div>
+            <div class="productList listProduct tawa" data-category="tawa">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/26_thumb.jpg" alt="Kal Kozhi" />
+                </div>
+                <div class="productDesc">
+                    <h3>Kal Kozhi</h3>
+                </div>
+            </div>
+            <div class="productList listProduct tawa" data-category="tawa">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/35_thumb.jpg" alt="Chicken Leg Roast" />
+                </div>
+                <div class="productDesc">
+                    <h3>Chicken Leg Roast</h3>
                 </div>
             </div>
 
 
-            <div class="productList listProduct starters" data-category="starters">
+            <div class="productList listProduct deserts" data-category="deserts">
                 <div class="productImg">
-                    <img src="~/Content/Images/menu/4_thumb.jpg" alt="Tandoori Veg Platter" />
+                    <img src="~/Content/Images/menu/29_thumb.jpg" alt="Colourful Dreams" />
                 </div>
                 <div class="productDesc">
-                    <h3>Tandoori Veg Platter</h3>
+                    <h3>Colourful Dreams</h3>
                 </div>
             </div>
-            <div class="productList listProduct starters" data-category="starters">
+            <div class="productList listProduct deserts" data-category="deserts">
                 <div class="productImg">
-                    <img src="~/Content/Images/menu/4_thumb.jpg" alt="Tandoori Veg Platter" />
+                    <img src="~/Content/Images/menu/8_thumb.jpg" alt="Jigar Thanda" />
                 </div>
                 <div class="productDesc">
-                    <h3>Tandoori Veg Platter</h3>
+                    <h3>Jigar Thanda</h3>
                 </div>
             </div>
+
+
+            <div class="productList listProduct chinese" data-category="chinese">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/43_thumb.jpg" alt="Fried Rice" />
+                </div>
+                <div class="productDesc">
+                    <h3>Fried Rice</h3>
+                </div>
+            </div>
+
+            <div class="productList listProduct curries" data-category="curries">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/39_thumb.jpg" alt="Kodaikanal Chicken Kolambu" />
+                </div>
+                <div class="productDesc">
+                    <h3>Kodaikanal Chicken Kolambu</h3>
+                </div>
+            </div>
+            <div class="productList listProduct curries" data-category="curries">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/44_thumb.jpg" alt="Veg Jalfraize" />
+                </div>
+                <div class="productDesc">
+                    <h3>Veg Jalfraize</h3>
+                </div>
+            </div>
+            <div class="productList listProduct curries" data-category="curries">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/2_thumb.jpg" alt="Dindigul Chicken Masala" />
+                </div>
+                <div class="productDesc">
+                    <h3>Dindigul Chicken Masala</h3>
+                </div>
+            </div>
+            <div class="productList listProduct curries" data-category="curries">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/7_thumb.jpg" alt="Kattabomman Chicken Gravy" />
+                </div>
+                <div class="productDesc">
+                    <h3>Kattabomman Chicken Gravy</h3>
+                </div>
+            </div>
+            <div class="productList listProduct curries" data-category="curries">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/3_thumb.jpg" alt="Curry Chops Masala" />
+                </div>
+                <div class="productDesc">
+                    <h3>Curry Chops Masala</h3>
+                </div>
+            </div>
+            <div class="productList listProduct curries" data-category="curries">
+                <div class="productImg">
+                    <img src="~/Content/Images/menu/6_thumb.jpg" alt="Mutton Masala" />
+                </div>
+                <div class="productDesc">
+                    <h3>Mutton Masala</h3>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
