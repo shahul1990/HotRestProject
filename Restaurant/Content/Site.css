@@ -206,3 +206,188 @@ font-size: 16px !important;
     width: 60%;
     float: left;
 }
+
+
+/* *** Product *** */
+
+#product
+{
+    text-align: center;
+    margin: 20px 0 20px 0;
+    padding: 0px;
+    width: 100%;
+}
+#product h2
+{
+    font-size: 18px !important;
+    overflow: hidden;
+}
+.prolink
+{
+    text-align: center;
+    background: #f7f7f7;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight:600;
+    text-transform: uppercase;
+    color: #333;
+    border: 2px solid #cacaca;
+    margin: 5px 5px 5px 0px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+.prolink:last-child
+{
+    padding: 5px 15px 5px 15px;
+}
+.prolink:hover
+{
+    color: #b50000;
+    text-decoration:none;
+}
+.prolinkActive, .prolinkActive:hover, a.prolinkActive:focus
+{
+    background: #b50000;
+    color: #fff;
+    text-decoration:none;
+    border-color: #b50000;
+}
+
+/*.productRecent {border:1px solid #cacaca; padding:20px; background:#f7f7f7;}*/
+
+.productRecent .productList.listProduct
+{
+    width: 20%;
+    text-align: center;
+}
+.productRecent .productList
+{
+    margin: 0 0px 20px 0px;
+    min-height: 170px;
+    padding-bottom: 5px;
+    -moz-transition: all .6s ease-in-out 0s;
+    -webkit-transition: all .6s ease-in-out 0s;
+    -o-transition: all .6s ease-in-out 0s;
+    -ms-transition: all .6s ease-in-out 0s;
+    transition: all .6s ease-in-out 0s;
+}
+.productRecent .productDesc
+{
+   background:#f9f9f9;
+    color: #8C919B;
+    cursor: pointer;
+    margin-top: 0px;
+    padding: 10px 15px 10px;
+    font-size: 12px;
+    font-weight: 300;
+    border:1px solid #cacaca ;
+    border-top:none;
+}
+.productRecent h3
+{
+    background: none !important;
+    cursor: pointer;
+    font-size: 14px !important;
+    margin-bottom: 0px;
+    color: #083e84;
+    font-weight: 600 !important;
+    text-decoration: none;
+}
+.productRecent a, .productRecent a h3 
+{
+    color:#083e84;
+     text-decoration: none;
+     -moz-transition: all .6s ease-in-out 0s;
+    -webkit-transition: all .6s ease-in-out 0s;
+    -o-transition: all .6s ease-in-out 0s;
+    -ms-transition: all .6s ease-in-out 0s;
+    transition: all .6s ease-in-out 0s;
+}
+.productRecent a:hover, .productRecent a:hover h3 
+{
+    color: #f68826;
+}
+.productRecent .productImg
+{
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #cacaca;
+    max-height: 190px;
+}
+.productRecent .productImg img {width:100%;}
+/*.productRecent .productImg:after
+{
+    content: "";
+    border: 15px solid #333333;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-bottom: 0px solid transparent;
+    position: absolute;
+    left: 45%;
+    top: 78%;
+}*/
+
+.productRecent .productImg .productHover
+{
+    background: rgba(255, 255, 255, .9);
+    cursor: pointer;
+    -moz-transition: all .6s ease-in-out 0s;
+    -webkit-transition: all .6s ease-in-out 0s;
+    -o-transition: all .6s ease-in-out 0s;
+    -ms-transition: all .6s ease-in-out 0s;
+    transition: all .6s ease-in-out 0s;
+    position: absolute;
+    padding: 10px;
+    width: 254px;
+    height: 170px;
+    opacity: 0;
+    transform: scale(1);
+}
+.productRecent .productImg:hover .productHover
+{
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* *** Isotope Filtering * ***/
+.isotope-item
+{
+    z-index: 2;
+}
+.isotope-hidden.isotope-item
+{
+    pointer-events: none;
+    z-index: 1;
+}
+/* *** Isotope CSS3 transitions * ***/
+.isotope, .isotope .isotope-item
+{
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+.isotope
+{
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    -o-transition-property: height, width;
+    transition-property: height, width;
+}
+.isotope .isotope-item
+{
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    -o-transition-property: top, left, opacity;
+    transition-property: transform, opacity;
+}
+/**** disabling Isotope CSS3 transitions ****/
+.isotope.no-transition, .isotope.no-transition .isotope-item, .isotope .isotope-item.no-transition
+{
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s;
+}
+/* End: Recommended Isotope styles */
