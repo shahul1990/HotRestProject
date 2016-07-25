@@ -55,7 +55,7 @@
                         <li><div class="fullbarLine"> </div></li>
                     }*@
 
-                    @foreach (var product in iProductRepository.LatestProd())
+                    @*@foreach (var product in iProductRepository.LatestProd())
                     {
                         <li>
                             @product.Image
@@ -65,7 +65,7 @@
                             <button type="button" onclick="javascript:AddToCart();" id="btn1"><img src='@Url.Content("~/Content/Images/addbtn05.png")' /></button>
                             <div class="fullbarLine"> </div>
                         </li>
-                    }
+                    }*@
                 </ul>
             </div>
         </div>
