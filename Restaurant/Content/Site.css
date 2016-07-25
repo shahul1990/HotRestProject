@@ -45,9 +45,14 @@ body {font:500 14px 'Open Sans', Arial, Helvetica, sans-serif; color:#333; min-h
 .menuList img {float:left; margin:0px 20px 10px 0px; border: 5px solid #fff; border-radius: 50%; box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);}
 .menuList h4 {font:bold 16px 'Open Sans', Arial, Helvetica, sans-serif; color:#e31836; margin:0px 0px 5px;}
 .orderBtn {background:#440000; color:#fff; text-decoration:none; font:bold 13px 'Open Sans', Arial, Helvetica, sans-serif; display:inline-block; border-radius:4px; padding:5px 10px; margin-top:15px; clear:both;}
-.orderBtn:hover {background:#e31836; text-decoration:none; color:#fff;}
+.orderBtn:hover, .orderBtn:focus {background:#e31836; text-decoration:none; color:#fff;}
 .onlineBtn {background:#e31836; color:#fff; text-decoration:none; font:bold 30px 'Open Sans', Arial, Helvetica, sans-serif; display:inline-block; border-radius:4px; padding:10px 20px; margin-top:15px; clear:both; text-transform:uppercase; box-shadow:0px 0px 20px rgba(0,0,0,.8);}
-.onlineBtn:hover {background:#e31836; text-decoration:none; color:#fff;}
+.onlineBtn:hover, .onlineBtn:focus  {background:#e31836; text-decoration:none; color:#fff;}
+.btnOnline {background:#e31836; color:#fff; text-decoration:none; font:bold 30px 'Open Sans', Arial, Helvetica, sans-serif; display:inline-block; border-radius:4px; padding:10px 20px; margin-top:15px; clear:both; text-transform:uppercase;}
+.btnOnline:hover, .btnOnline:focus {background:#e31836; text-decoration:none; color:#fff;}
+.submitBtn {background:#440000; color:#fff; text-decoration:none; font:bold 16px 'Open Sans', Arial, Helvetica, sans-serif; display:inline-block; border-radius:4px; padding:5px 10px; margin-top:15px; clear:both;}
+.submitBtn:hover, .submitBtn:focus {background:#e31836; text-decoration:none; color:#fff;}
+
 
 .barLine {height:2px; background:#d80001; width:200px; margin-bottom:20px;}
 .fullbarLine {height:2px; background:#851C2D; width:545px; margin-bottom:20px;}
