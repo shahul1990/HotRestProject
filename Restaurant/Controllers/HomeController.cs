@@ -63,23 +63,23 @@ namespace Restaurant.Controllers
 
 
 
-        public ActionResult PartyHall()
-        {
-            //ViewBag.Message = "Your contact page.";
+        //public ActionResult PartyHall()
+        //{
+        //    //ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult Dinning_Buffets()
-        {
-            //ViewBag.Message = "Your contact page.";
+        //public ActionResult Dinning_Buffets()
+        //{
+        //    //ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        public ActionResult Catering()
-        {
-            return View();
-        }
+        //public ActionResult Catering()
+        //{
+        //    return View();
+        //}
     }
 }

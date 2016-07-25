@@ -28,17 +28,17 @@
                             <nav id="navbar" class="navbar-collapse collapse" aria-expanded="false">
                                 <ul class="navigation">
                                     <li><a href="/" id="menuHome">Home</a></li>
-                                    <li><a href="/Home/About" id=" menuAbout">About Us</a></li>
+                                    <li><a href="/Home/About" id="menuAbout">About Us</a></li>
                                     <li><a href="/Home/Menu" id="menuMenu">Menu</a></li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="menuService">Service<b class="caret"></b></a>
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" id="menuService">Service<b class="caret"></b></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="/Home/Index">Dining/Buffet</a></li>
-                                            <li><a href="/Home/Index">Party Hall</a></li>
-                                            <li><a href="/Home/Index">Catering</a></li>
+                                            <li><a href="/Services/Dining">Dining/Buffet</a></li>
+                                            <li><a href="/Services/PartyHall">Party Hall</a></li>
+                                            <li><a href="/Services/Catering">Catering</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/Product/Category" id="menuOrder">Order Online</a></li>
+                                    <li><a href="/Product/Index" id="menuOrder">Order Online</a></li>
                                     <li><a href="/Home/Index" id="menuTrack">Track your Order</a></li>
                                     <li><a href="/Home/Contact" id="menuContact">Reach Us</a></li>
                                 </ul>
@@ -62,15 +62,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <a href="/">Home</a> | <a href="#">Menu</a> @*| <a href="/Home/Contact">Reach Us</a>*@ | <a href="/Home/About">About Us</a> | <a href="/Admin/Index">Admin Login</a>
-                    | <a href="/Category/Index">Category</a>
+                    <a href="/">Home</a> | <a href="#">Menu</a> | <a href="/Home/About">About Us</a> | <a href="/Admin/Index">Admin Login</a>
+                    @*| <a href="/Category/Index">Category</a>
                     | <a href="/Product/Index">Product</a>
                     | <a href="/Cart/OrderOnline">Order</a>
                     | <a href="/Cart/OrderOnlineCopy">Ordercopy</a>
                     | <a href="/Cart/Index">cart</a>
                     | <a href="/Cart/cateTemp">aray</a>
                     | <a href="/Default1/Index">deasdf</a>
-                    | <a href="/Menu/Index">Menu</a>
+                    | <a href="/Menu/Index">Menu</a>*@
                     <br />
                     <span>&copy; @DateTime.Now.Year - Powered By: BRASSY Techonologies (FZE), Sharjah, UAE</span>
                 </div>
@@ -82,35 +82,36 @@
     <p id="back-top">
         <a href="#top"><span><img src="~/Content/Images/arrow.png" alt="back to top" /></span></a>
     </p>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#back-top').hide();
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 10) {
-                    $(".navbar-fixed-top").css("box-shadow", "0px 0px 10px rgba(0,0,0,.2)");
-                }
-                else {
-                    $(".navbar-fixed-top").css("box-shadow", "none");
-                }
-                if ($(this).scrollTop() > 100) {
-                    $('#back-top').fadeIn();
-
-                } else {
-                    $('#back-top').fadeOut();
-                }
-            });
-            // scroll body to 0px on click
-            $('#back-top a').click(function () {
-                $('body,html').animate({
-                    scrollTop: 0
-                }, 800);
-                return false;
-            });
-
-        });
-    </script>
     @Scripts.Render("~/bundles/jquery")
-    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#back-top').hide();
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 10) {
+                $(".navbar-fixed-top").css("box-shadow", "0px 0px 10px rgba(0,0,0,.2)");
+            }
+            else {
+                $(".navbar-fixed-top").css("box-shadow", "none");
+            }
+            if ($(this).scrollTop() > 100) {
+                $('#back-top').fadeIn();
+
+            } else {
+                $('#back-top').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#back-top a').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+
+    });
+    </script>
+
 </body>
 </html>
