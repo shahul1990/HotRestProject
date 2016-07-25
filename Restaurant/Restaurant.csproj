@@ -195,6 +195,15 @@
     <Content Include="Content\Images\img6.jpg" />
     <Content Include="Content\Images\img7.jpg" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\menu\16_thumb.jpg" />
+    <Content Include="Content\Images\menu\22_thumb.jpg" />
+    <Content Include="Content\Images\menu\23_thumb.jpg" />
+    <Content Include="Content\Images\menu\25_thumb.jpg" />
+    <Content Include="Content\Images\menu\28_thumb.jpg" />
+    <Content Include="Content\Images\menu\30_thumb.jpg" />
+    <Content Include="Content\Images\menu\33_thumb.jpg" />
+    <Content Include="Content\Images\menu\4_thumb.jpg" />
+    <Content Include="Content\Images\menu\5_thumb.jpg" />
     <Content Include="Content\Images\Mix-Non-Veg-Noo.jpg" />
     <Content Include="Content\Images\plain-rice%28full%29.jpg" />
     <Content Include="Content\Images\sec-veg-nood.jpg" />
@@ -284,6 +293,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.isotope.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
