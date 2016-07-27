@@ -406,6 +406,7 @@ font-size: 16px !important;
     color:White;
     padding:5px;
     border-radius:2px;
+    height: 60px;
 }
 
 .cartDel
@@ -443,10 +444,17 @@ font-size: 16px !important;
     width: 100%;
 }
 
-.divIName {
-    
+.divIName 
+{   
     color: #e31836;
-    padding-left: 5px;
+    padding-left: 15px;
+    text-align: left;
+}
+
+.divPrice
+{
+    color: #e31836;
+    padding-left: 15px;
     text-align: left;
 }
 
@@ -465,13 +473,36 @@ font-size: 16px !important;
     color: #ffffff;
     cursor: pointer;
     float: right;
-    padding: 2px;
-    width: 8%;
+    padding: 1px;
+    width: 9%;
     text-align: center;
 }
 
+#itemnametd 
+{
+    color: #e31836;
+    padding-left: 5px;
+    text-align: left;
+}
 
+#itempricetd
+{
+    color: #e31836;
+    padding-left: 5px;
+    text-align: left;
+}
 
+#itemaddtocart
+{
+    background: none repeat scroll 0 0 #008000;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    float: right;
+    padding: 2px;
+    width: 35%;
+    text-align: center;
+}
 
 
 

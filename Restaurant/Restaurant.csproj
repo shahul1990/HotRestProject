@@ -128,7 +128,6 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -351,10 +350,8 @@
     <Content Include="Views\Cart\categorylist.cshtml" />
     <Content Include="Views\Cart\Details.cshtml" />
     <Content Include="Views\Cart\_cartItem.cshtml" />
-    <Content Include="Views\Product\Details1.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\Services\Dining.cshtml" />
     <Content Include="Views\Services\PartyHall.cshtml" />
     <Content Include="Views\Services\Catering.cshtml" />

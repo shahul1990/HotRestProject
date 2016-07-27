@@ -15,7 +15,11 @@ namespace Restaurant.Controllers
         private IProductRepository iProductRepository = new ProductRepository();
         private ICategoryRepository iCategoryRepository = new CategoryRepository();
 
-        // GET: /Cart/
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult OrderOnline()
         {
          
@@ -23,23 +27,10 @@ namespace Restaurant.Controllers
             //return View("OrderOnline");
         }
 
-        public ActionResult OrderOnlinecopynew()
-        {
-
-            return View("OrderOnlinecopynew", getAllItems());
-            //return View("OrderOnline");
-        }
-
         public ActionResult OrderOnlineCopy()
         {
             return View("OrderOnlineCopy", getAllItems());
         }
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
 
         public IList<ItemList> getAllItems()
         {
@@ -57,21 +48,22 @@ namespace Restaurant.Controllers
 
         public int AddCart(int ItemId)
         {
-
+            string username = "shahul";
             Cart objcart = new Cart()
             {
+                Username = username,
                 ItemId = ItemId
             };
             restdb.Carts.Add(objcart);
             restdb.SaveChanges();
             int count = restdb.Carts.Count();
             return count;
-
         }
 
 
         public PartialViewResult GetCartItems()
         {
+            
             var sum = 0;
             var GetItemsId = restdb.Carts.Select(u=>u.ItemId).ToList();
             var GetCartItem = from itemList in restdb.ItemLists where GetItemsId.Contains(itemList.id) select itemList;
@@ -81,7 +73,6 @@ namespace Restaurant.Controllers
             }
             ViewBag.Total = sum;
             return PartialView("_cartItem", GetCartItem);
-
         }
 
         public PartialViewResult DeleteCart(int itemId)
@@ -90,6 +81,13 @@ namespace Restaurant.Controllers
             restdb.Carts.Remove(removeCart);
             restdb.SaveChanges();
             return GetCartItems();
+        }
+
+
+        [HttpPost]
+        public JsonResult Create(Cart item)
+        {
+            return Json("Response from Create");
         }
     }
 }

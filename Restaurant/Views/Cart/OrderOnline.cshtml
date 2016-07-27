@@ -183,16 +183,3 @@
 </script>
 
 
-
-@* Ajax request for category *@
-
-@Ajax.ActionLink("Menu", // <-- Text to display
-                 "Category", // <-- Action Method Name
-                 new AjaxOptions
-                 {
-                     UpdateTargetId = "CustomerList", // <-- DOM element ID to update
-                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
-                     HttpMethod = "GET" // <-- HTTP method
-                 })
-
-}
