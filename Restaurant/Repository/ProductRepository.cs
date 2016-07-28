@@ -17,13 +17,13 @@ namespace Restaurant.Repository
         
         public List<ItemList> LatestProd(int n)
         {
-            return RestaurantDBEntities.ItemLists.OrderBy(p => p.id).Take(n).ToList();
+            return RestaurantDBEntities.ItemLists.OrderBy(p => p.ItemId).Take(n).ToList();
         }
 
 
         public List<ItemList> RelatedProd(ItemList itemlist, int n)
         {
-            return RestaurantDBEntities.ItemLists.Where(p => p.Category_id == itemlist.Category_id && p.id != itemlist.id).Take(n).ToList(); 
+            return RestaurantDBEntities.ItemLists.Where(p => p.Category_id == itemlist.Category_id && p.ItemId != itemlist.ItemId).Take(n).ToList(); 
         }
     }
 }

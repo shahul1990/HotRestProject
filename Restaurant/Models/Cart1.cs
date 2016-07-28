@@ -12,18 +12,10 @@ namespace Restaurant.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ItemCategory
+    public partial class Cart1
     {
-        public ItemCategory()
-        {
-            this.ItemLists = new HashSet<ItemList>();
-        }
-    
-        public int CategoryId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-    
-        public virtual ICollection<ItemList> ItemLists { get; set; }
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public int ItemId { get; set; }
     }
 }

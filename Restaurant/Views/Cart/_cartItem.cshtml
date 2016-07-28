@@ -13,10 +13,10 @@
             <table id="cartList">
                 <thead>
                     <tr>
-                        <td><b>Image</b></td>
-                        <td><b>Name</b></td>
-                        <td><b>Price</b></td>
-                        <td><b>Action</b></td>
+                        <td id="carttr"><b>Name</b></td>
+                        @*<td id="carttr"><b>Qnty</b></td>*@
+                        <td id="carttr"><b>Price</b></td>
+                        <td id="carttr"><b>Action</b></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,17 +24,19 @@
                     {
 
                         <tr id="@objItem.id">
-                            <td>
-                                <img src="@objItem.ImagePath" width="50" height="50" />
-                            </td>
-                            <td>
+                            <td id="carttdname">
                                 @objItem.Name
                             </td>
-                            <td>
+                            @*<td id="carttdqty">
+                                @QTYField0
+                            </td>*@
+                            <td id="carttdprice">
                                 @objItem.Price
                             </td>
-                            <td>
-                                <span class="cartDel">Remove</span>
+                            <td id="carttdoptions">
+                                <span class="cartDel">Remove</span> |
+                                <span class="cartAdd">Add</span> |
+                                <span class="cartMinus">Minus</span>
                             </td>
                         </tr>
                     }
@@ -42,6 +44,7 @@
 
             </table>
             <span class="totalPrice">Total Amount @ViewBag.Total</span>
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -54,7 +57,3 @@
     </div>
 </div>
 
-@section scripts {
-
-
-}

@@ -505,10 +505,59 @@ font-size: 16px !important;
 }
 
 
+.modal-dialog {
+    margin:-140px -50px;
+    position: absolute;
+    width: 500px;
+}
 
 
+.modal-body {
+    padding: 10px;
+    position: relative;
+}
+
+.modal-footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 10px;
+    text-align: right;
+}
 
 
+.modal-content {
+    background-clip: padding-box;
+    background-color: #ffffff;
+    border: 2px double rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    outline: 0 none;
+    position: relative;
+}
+
+#carttr{
+    text-align:center;
+    width: 200px;
+    
+}
 
 
+#carttdname{
+    text-align:left;
+    width: 350px;
+}
 
+#carttdqty{
+    text-align:center;
+    width: 50px;
+}
+
+#carttdprice{
+    text-align:center;
+    width: 50px;
+}
+
+#carttdoptions{
+    text-align: left;
+    width: 450px;
+    height: 50px;
+}

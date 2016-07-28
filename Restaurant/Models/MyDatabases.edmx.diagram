@@ -4,17 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="19eea8c8077a47ec9e14b60875912443" Name="Diagram1">
-        <EntityTypeShape EntityType="RestaurantDBModel.Cart" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestaurantDBModel.Customer" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestaurantDBModel.GuestDetail" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestaurantDBModel.ItemCategory" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestaurantDBModel.ItemList" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestaurantDBModel.Order" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="RestaurantDBModel.OrderDetail" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="RestaurantDBModel.FK_ItemList_ItemCategory" ManuallyRouted="false" />
-        <AssociationConnector Association="RestaurantDBModel.FK_Order_OrderDetails" ManuallyRouted="false" />
-      </Diagram>
+      <Diagram DiagramId="19eea8c8077a47ec9e14b60875912443" Name="Diagram1" ZoomLevel="69">
+        <EntityTypeShape EntityType="RestaurantDBModel.ItemCategory" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantDBModel.ItemList" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="RestaurantDBModel.FK_ItemList_ItemCategory1" />
+        <EntityTypeShape EntityType="RestaurantDBModel.Cart" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="RestaurantDBModel.Cart1" Width="1.5" PointX="0.75" PointY="3.375" />
+        <AssociationConnector Association="RestaurantDBModel.FK_Cart_ItemList" />
+        <EntityTypeShape EntityType="RestaurantDBModel.Customer" Width="1.5" PointX="5.375" PointY="5" />
+        <EntityTypeShape EntityType="RestaurantDBModel.GuestDetail" Width="1.5" PointX="5.375" PointY="1.25" />
+        <EntityTypeShape EntityType="RestaurantDBModel.Order" Width="1.5" PointX="7.625" PointY="1" />
+        <EntityTypeShape EntityType="RestaurantDBModel.OrderDetail" Width="1.5" PointX="9.875" PointY="1" />
+        <AssociationConnector Association="RestaurantDBModel.FK_Order_Customer" />
+        <AssociationConnector Association="RestaurantDBModel.FK_Order_GuestDetails" />
+        <AssociationConnector Association="RestaurantDBModel.FK_OrderDetail_ItemList" />
+        <AssociationConnector Association="RestaurantDBModel.FK_OrderDetail_Order" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

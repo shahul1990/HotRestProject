@@ -14,10 +14,17 @@ namespace Restaurant.Models
     
     public partial class GuestDetail
     {
-        public int id { get; set; }
+        public GuestDetail()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
+        public int Guest_Id { get; set; }
         public string Name { get; set; }
         public string EmailID { get; set; }
         public string DeliveryAddress { get; set; }
         public string ContactNo { get; set; }
+    
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

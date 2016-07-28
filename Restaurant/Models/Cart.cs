@@ -14,8 +14,12 @@ namespace Restaurant.Models
     
     public partial class Cart
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
+        public int Record_Id { get; set; }
+        public string CartId { get; set; }
         public int ItemId { get; set; }
+        public Nullable<int> Count { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+    
+        public virtual ItemList ItemList { get; set; }
     }
 }

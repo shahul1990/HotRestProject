@@ -25,11 +25,12 @@ namespace Restaurant.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Cart> Carts { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<GuestDetail> GuestDetails { get; set; }
         public virtual DbSet<ItemCategory> ItemCategories { get; set; }
         public virtual DbSet<ItemList> ItemLists { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<Cart1> Carts1 { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<GuestDetail> GuestDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
     }

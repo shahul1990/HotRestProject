@@ -46,42 +46,43 @@ namespace Restaurant.Controllers
             return View("Details");
         }
 
-        public int AddCart(int ItemId)
-        {
-            string username = "shahul";
-            Cart objcart = new Cart()
-            {
-                Username = username,
-                ItemId = ItemId
-            };
-            restdb.Carts.Add(objcart);
-            restdb.SaveChanges();
-            int count = restdb.Carts.Count();
-            return count;
-        }
+        //public int AddCart(int ItemId)
+        //{
+        //    string username = "shahul";
+        //    Cart objcart = new Cart()
+        //    {
+        //        Username = username,
+        //        ItemId = ItemId
+        //    };
+        //    restdb.Carts.Add(objcart);
+        //    restdb.SaveChanges();
+        //    int count = restdb.Carts.Count();
+        //    return count;
+        //}
 
 
-        public PartialViewResult GetCartItems()
-        {
+        //public PartialViewResult GetCartItems()
+        //{
             
-            var sum = 0;
-            var GetItemsId = restdb.Carts.Select(u=>u.ItemId).ToList();
-            var GetCartItem = from itemList in restdb.ItemLists where GetItemsId.Contains(itemList.id) select itemList;
-            foreach (var totalsum in GetCartItem)
-            {
-                sum = sum + totalsum.Price;
-            }
-            ViewBag.Total = sum;
-            return PartialView("_cartItem", GetCartItem);
-        }
+        //    var sum = 0;
+        //    var GetItemsId = restdb.Carts.Select(u=>u.ItemId).ToList();
+        //    var GetCartItem = from itemList in restdb.ItemLists where GetItemsId.Contains(itemList.id) select itemList;
+        //    foreach (var totalsum in GetCartItem)
+        //    {
+        //        sum = sum + totalsum.Price;
 
-        public PartialViewResult DeleteCart(int itemId)
-        {
-            Cart removeCart = restdb.Carts.FirstOrDefault(s => s.ItemId == itemId);
-            restdb.Carts.Remove(removeCart);
-            restdb.SaveChanges();
-            return GetCartItems();
-        }
+        //    }
+        //    ViewBag.Total = sum;
+        //    return PartialView("_cartItem", GetCartItem);
+        //}
+
+        //public PartialViewResult DeleteCart(int itemId)
+        //{
+        //    Cart removeCart = restdb.Carts.FirstOrDefault(s => s.ItemId == itemId);
+        //    restdb.Carts.Remove(removeCart);
+        //    restdb.SaveChanges();
+        //    return GetCartItems();
+        //}
 
 
         [HttpPost]

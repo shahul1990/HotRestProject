@@ -14,12 +14,20 @@ namespace Restaurant.Models
     
     public partial class Order
     {
-        public int id { get; set; }
-        public int ItemDetails { get; set; }
-        public int CustomerID { get; set; }
-        public Nullable<System.DateTime> DeliveryDate { get; set; }
-        public string Status { get; set; }
+        public Order()
+        {
+            this.OrderDetails = new HashSet<OrderDetail>();
+        }
     
-        public virtual OrderDetail OrderDetail { get; set; }
+        public int OrderId { get; set; }
+        public Nullable<int> CustomerId { get; set; }
+        public decimal Total { get; set; }
+        public System.DateTime OrderDate { get; set; }
+        public string Status { get; set; }
+        public Nullable<int> GuestId { get; set; }
+    
+        public virtual Customer Customer { get; set; }
+        public virtual GuestDetail GuestDetail { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

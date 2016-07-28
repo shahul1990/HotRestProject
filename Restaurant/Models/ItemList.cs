@@ -14,7 +14,13 @@ namespace Restaurant.Models
     
     public partial class ItemList
     {
-        public int id { get; set; }
+        public ItemList()
+        {
+            this.Carts = new HashSet<Cart>();
+            this.OrderDetails = new HashSet<OrderDetail>();
+        }
+    
+        public int ItemId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Price { get; set; }
@@ -25,5 +31,7 @@ namespace Restaurant.Models
         public string ImagePath { get; set; }
     
         public virtual ItemCategory ItemCategory { get; set; }
+        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }
