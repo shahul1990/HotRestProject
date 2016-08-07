@@ -19,6 +19,8 @@
         <AssociationConnector Association="RestaurantDBModel.FK_Order_GuestDetails" />
         <AssociationConnector Association="RestaurantDBModel.FK_OrderDetail_ItemList" />
         <AssociationConnector Association="RestaurantDBModel.FK_OrderDetail_Order" />
+        <EntityTypeShape EntityType="RestaurantDBModel.Admin" Width="1.5" PointX="12.5" PointY="1.125" />
+        <EntityTypeShape EntityType="RestaurantDBModel.LoginModel" Width="1.5" PointX="12.5" PointY="3.375" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

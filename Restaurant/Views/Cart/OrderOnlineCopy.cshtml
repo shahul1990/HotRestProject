@@ -105,68 +105,68 @@
         </div>
 
         </div>
-        <div class="col-md-3">
-            <h4 class="ordermenutop">Cart</h4>
-            <div class="sidemenubar">
-                <div class="cartselecteditem">
+        @*<div class="col-md-3">
+                <h4 class="ordermenutop">Cart</h4>
+                <div class="sidemenubar">
+                    <div class="cartselecteditem">
 
 
-                    <span>
-                        <strong>Sub Total : </strong>
-                    </span>
-                    <span id="TotalAmount">
-                        $0.00
-                    </span><br />
-                    <span class="totalPrice"><strong>Total Amount : </strong>@ViewBag.Total</span>
-                    <br />
-                    <span>
-                        <strong>Service Tax</strong>
-                    </span><br />
-                    <span>
-                        <strong>Grand Total </strong>
-                    </span>
-                    <br />
-                    <span>
-                        <strong>Order Type</strong>
-                    </span><br />
-                    <span>
-                        <strong>Delivery Time :  </strong>
+                        <span>
+                            <strong>Sub Total : </strong>
+                        </span>
+                        <span id="TotalAmount">
+                            $0.00
+                        </span><br />
+                        <span class="totalPrice"><strong>Total Amount : </strong>@ViewBag.Total</span>
+                        <br />
+                        <span>
+                            <strong>Service Tax</strong>
+                        </span><br />
+                        <span>
+                            <strong>Grand Total </strong>
+                        </span>
+                        <br />
+                        <span>
+                            <strong>Order Type</strong>
+                        </span><br />
+                        <span>
+                            <strong>Delivery Time :  </strong>
 
 
-                        <select style="width:90px; border:1px solid #c7c7c7; color:grey;height:25px;border-radius:3px;" id="ddDeliveryTime" name="ddDeliveryTime">
-                            <option value="0">Select</option>
-                            <option value="11:30 AM">11.30AM</option>
-                            <option value="00:00 PM">12.00PM</option>
-                            <option value="00:30 PM">12.30PM</option>
-                            <option value="01:00 PM">1.00PM</option>
-                            <option value="01:30 PM">1.30PM</option>
-                            <option value="02:00 PM">2.00PM</option>
-                            <option value="02:30 PM">2.30PM</option>
-                            <option value="03:00 PM">3.00PM</option>
-                            <option value="03:30 PM">3.30PM</option>
-                            <option value="04:00 PM">4.00PM</option>
-                            <option value="04:30 PM">4.30PM</option>
-                            <option value="05:00 PM">5.00PM</option>
-                            <option value="05:30 PM">5.30PM</option>
-                            <option value="06:00 PM">6.00PM</option>
-                            <option value="06:30 PM">6.30PM</option>
-                            <option value="07:00 PM">7.00PM</option>
-                            <option value="07:30 PM">7.30PM</option>
-                            <option value="08:00 PM">8.00PM</option>
-                            <option value="08:30 PM">8.30PM</option>
-                            <option value="09:00 PM">9.00PM</option>
-                            <option value="09:30 PM">9.30PM</option>
-                            <option value="10:00 PM">10.00PM</option>
-                        </select>
+                            <select style="width:90px; border:1px solid #c7c7c7; color:grey;height:25px;border-radius:3px;" id="ddDeliveryTime" name="ddDeliveryTime">
+                                <option value="0">Select</option>
+                                <option value="11:30 AM">11.30AM</option>
+                                <option value="00:00 PM">12.00PM</option>
+                                <option value="00:30 PM">12.30PM</option>
+                                <option value="01:00 PM">1.00PM</option>
+                                <option value="01:30 PM">1.30PM</option>
+                                <option value="02:00 PM">2.00PM</option>
+                                <option value="02:30 PM">2.30PM</option>
+                                <option value="03:00 PM">3.00PM</option>
+                                <option value="03:30 PM">3.30PM</option>
+                                <option value="04:00 PM">4.00PM</option>
+                                <option value="04:30 PM">4.30PM</option>
+                                <option value="05:00 PM">5.00PM</option>
+                                <option value="05:30 PM">5.30PM</option>
+                                <option value="06:00 PM">6.00PM</option>
+                                <option value="06:30 PM">6.30PM</option>
+                                <option value="07:00 PM">7.00PM</option>
+                                <option value="07:30 PM">7.30PM</option>
+                                <option value="08:00 PM">8.00PM</option>
+                                <option value="08:30 PM">8.30PM</option>
+                                <option value="09:00 PM">9.00PM</option>
+                                <option value="09:30 PM">9.30PM</option>
+                                <option value="10:00 PM">10.00PM</option>
+                            </select>
 
 
-                    </span>
-                    <a href="javascript:void(0);" onclick="javascript:PostData();">Proceed to Checkout</a>
-                    <br />
-                    <button id="myButton">Click me!</button>
-                </div>
-</div>
-        </div>
+                        </span>
+                        <a href="javascript:void(0);" onclick="javascript:PostData();">Proceed to Checkout</a>
+                        <br />
+                        <button id="myButton">Click me!</button>
+                    </div>
+    </div>
+            </div>*@
     </div>
            
 </div>      
@@ -184,7 +184,7 @@
         $('.divAddCart').on('click', function () {
             var getItemId = parseInt($(this).closest('td').prop('id'));
             
-            var getqty = $('.QTYField0').html();
+            //var getqty = $('.QTYField0').html();
             $.ajax({
                 type: 'POST',
                 contentType: 'application/json; charset=utf-8',
@@ -193,7 +193,7 @@
                 data: "{ 'ItemId':' " + getItemId + "' }",
                 success: function (data) {
                     $('#spnCart').html(data)
-                    $('#cartselecteditem').html(data)
+                    //$('#cartselecteditem').html(data)
                     alert(data)
                 },
                 error: function (data) {

@@ -32,11 +32,24 @@ namespace Restaurant.Controllers
             return View("OrderOnlineCopy", getAllItems());
         }
 
+        public ActionResult OrderOnline1()
+        {
+            return View("OrderOnline1", getAllItems());
+        }
+
+
         public IList<ItemList> getAllItems()
         {
             IList<ItemList> items = new List<ItemList>();
             items = restdb.ItemLists.ToList();
             return items;
+        }
+
+        public IList<ItemCategory> getAllcategory()
+        {
+            IList<ItemCategory> categries = new List<ItemCategory>();
+            categries = restdb.ItemCategories.ToList();
+            return categries;
         }
 
         public ActionResult Details(int id)
@@ -46,43 +59,43 @@ namespace Restaurant.Controllers
             return View("Details");
         }
 
-        //public int AddCart(int ItemId)
-        //{
-        //    string username = "shahul";
-        //    Cart objcart = new Cart()
-        //    {
-        //        Username = username,
-        //        ItemId = ItemId
-        //    };
-        //    restdb.Carts.Add(objcart);
-        //    restdb.SaveChanges();
-        //    int count = restdb.Carts.Count();
-        //    return count;
-        //}
+        public int AddCart(int ItemId)
+        {
+            string username = "shahul";
+            Cart1 objcart = new Cart1()
+            {
+                Username = username,
+                ItemId = ItemId
+            };
+            restdb.Carts1.Add(objcart);
+            restdb.SaveChanges();
+            int count = restdb.Carts.Count();
+            return count;
+        }
 
 
-        //public PartialViewResult GetCartItems()
-        //{
-            
-        //    var sum = 0;
-        //    var GetItemsId = restdb.Carts.Select(u=>u.ItemId).ToList();
-        //    var GetCartItem = from itemList in restdb.ItemLists where GetItemsId.Contains(itemList.id) select itemList;
-        //    foreach (var totalsum in GetCartItem)
-        //    {
-        //        sum = sum + totalsum.Price;
+        public PartialViewResult GetCartItems()
+        {
 
-        //    }
-        //    ViewBag.Total = sum;
-        //    return PartialView("_cartItem", GetCartItem);
-        //}
+            var sum = 0;
+            var GetItemsId = restdb.Carts.Select(u => u.ItemId).ToList();
+            var GetCartItem = from itemList in restdb.ItemLists where GetItemsId.Contains(itemList.ItemId) select itemList;
+            foreach (var totalsum in GetCartItem)
+            {
+                sum = sum + totalsum.Price;
 
-        //public PartialViewResult DeleteCart(int itemId)
-        //{
-        //    Cart removeCart = restdb.Carts.FirstOrDefault(s => s.ItemId == itemId);
-        //    restdb.Carts.Remove(removeCart);
-        //    restdb.SaveChanges();
-        //    return GetCartItems();
-        //}
+            }
+            ViewBag.Total = sum;
+            return PartialView("_cartItem", GetCartItem);
+        }
+
+        public PartialViewResult DeleteCart(int itemId)
+        {
+            Cart removeCart = restdb.Carts.FirstOrDefault(s => s.ItemId == itemId);
+            restdb.Carts.Remove(removeCart);
+            restdb.SaveChanges();
+            return GetCartItems();
+        }
 
 
         [HttpPost]

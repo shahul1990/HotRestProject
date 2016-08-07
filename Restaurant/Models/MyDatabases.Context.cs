@@ -33,5 +33,7 @@ namespace Restaurant.Models
         public virtual DbSet<GuestDetail> GuestDetails { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<LoginModel> LoginModels { get; set; }
     }
 }

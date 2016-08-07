@@ -33,7 +33,7 @@
                     @foreach (var category in iCategoryRepository.findAll())
                     {
                         <li>
-                            <a class="catbyid" href="@Url.Action("Categroy", "Product", new { id = category.id })">
+                            <a class="catbyid" href="@Url.Action("Categroy", "Product", new { id = category.CategoryId })">
                                 <h5>@category.Name</h5>
                             </a>
                         </li>
@@ -115,13 +115,14 @@
     var m_ShoppingCart = {OrderDetails: []
     };
 
-    function AddToCart(ItemName, Price, Quantity) {
+    function AddToCart(ItemName, Price, Quantity, Seci) {
 
         //  Add the item to the shopping cart object
         m_ShoppingCart.CartItems.push({
             "ItemName": ItemName,
             "Price": Price.toFixed(2), //   Issue here if you don't specify the decimal place
-            "Quantity": Quantity
+            "Quantity": Quantity,
+            "Quantity": Seci
         });
 
         //  Render the shopping cart object
