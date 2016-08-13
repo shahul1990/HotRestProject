@@ -1,0 +1,55 @@
+﻿@model Restaurant.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@section banner {
+    <div class="bannerInner">
+        <div class="container">
+            <div class="row">
+                <h2>Admin Login</h2>
+            </div>
+        </div>
+    </div>
+}
+
+@*@using (Html.BeginForm())
+{
+    @Html.Label("Username")
+    @Html.TextBoxFor(m => m.UserName)
+    @Html.Label("Password")
+    @Html.PasswordFor(m => m.Password)
+    <input type="submit" value="Login" />
+}*@
+
+
+
+
+
+<section id="loginForm">
+
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "control-label col-md-1" })
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+        
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label col-md-1" })           
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Log in" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</section>

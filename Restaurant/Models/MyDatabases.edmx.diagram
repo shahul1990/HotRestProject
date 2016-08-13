@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="19eea8c8077a47ec9e14b60875912443" Name="Diagram1" ZoomLevel="69">
+      <Diagram DiagramId="19eea8c8077a47ec9e14b60875912443" Name="Diagram1" ZoomLevel="77">
         <EntityTypeShape EntityType="RestaurantDBModel.ItemCategory" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="RestaurantDBModel.ItemList" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="RestaurantDBModel.FK_ItemList_ItemCategory1" />
@@ -21,6 +21,11 @@
         <AssociationConnector Association="RestaurantDBModel.FK_OrderDetail_Order" />
         <EntityTypeShape EntityType="RestaurantDBModel.Admin" Width="1.5" PointX="12.5" PointY="1.125" />
         <EntityTypeShape EntityType="RestaurantDBModel.LoginModel" Width="1.5" PointX="12.5" PointY="3.375" />
+        <EntityTypeShape EntityType="RestaurantDBModel.RegisterModel" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="RestaurantDBModel.UserProfile" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="RestaurantDBModel.ExternalLogin" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RestaurantDBModel.LocalPasswordModel" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="RestaurantDBModel.RegisterExternalLoginModel" Width="1.5" PointX="4.75" PointY="8.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

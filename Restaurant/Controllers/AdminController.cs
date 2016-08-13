@@ -12,7 +12,7 @@ using Restaurant.Filters;
 
 namespace Restaurant.Controllers
 {
-    [Authorize]
+    //[Authorize]
     //[InitializeSimpleMembership]
     public class AdminController : Controller
     {
@@ -23,49 +23,83 @@ namespace Restaurant.Controllers
             return View();
         }
 
-        [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }   
+        //[AllowAnonymous]
 
-        
+        public ActionResult Login() 
+        {
+            //ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
+
 
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel user)
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Login(Admin user)
         {
             using (RestaurantDBEntities db = new RestaurantDBEntities())
             {
-                try
+                var usr = db.Admins.Single(u => u.UserName == user.UserName && u.Password == user.Password);
+                if(usr!=null)
                 {
-                    if (ModelState.IsValid)
-                    {
-                        LoginModel us = db.LoginModels.SingleOrDefault(m => m.UserName == user.UserName);
-                        //LoginModel us = db.LoginModels.SingleOrDefault(m => m.UserName == user.UserName);
-                        if (us != null)
-                        {
-                            if (us.Password == user.Password)
-                            {
-                                FormsAuthentication.SetAuthCookie(user.UserName, false);
-                                return RedirectToAction("Index");
-                            }
-                            ModelState.AddModelError("", "Invalid Username or Password");
-                            return View();
-                        }
-                        throw new ArgumentException("User doesn't exists");
-                    }
+                    Session["UserName"] = usr.UserName.ToString();
+                    return RedirectToAction("LoggedIn");
                 }
-                catch (ArgumentException e)
+                else
                 {
-                    ModelState.AddModelError("", e.Message);
-                    return View();
+                    ModelState.AddModelError("", "Username or Password is wrong...");
                 }
             }
             return View();
         }
+
+        public ActionResult LoggedIn()
+        {
+            if (Session["UserName"] != null) 
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+        
+
+        //[HttpPost]
+        ////[AllowAnonymous]
+        ////[ValidateAntiForgeryToken]
+        //public ActionResult Login(LoginModel user)
+        //{
+        //    using (RestaurantDBEntities db = new RestaurantDBEntities())
+        //    {
+        //        try
+        //        {
+        //            if (ModelState.IsValid)
+        //            {
+        //                LoginModel us = db.LoginModels.SingleOrDefault(m => m.UserName == user.UserName);
+        //                //LoginModel us = db.LoginModels.SingleOrDefault(m => m.UserName == user.UserName);
+        //                if (us != null)
+        //                {
+        //                    if (us.Password == user.Password)
+        //                    {
+        //                        FormsAuthentication.SetAuthCookie(user.UserName, false);
+        //                        return RedirectToAction("Index");
+        //                    }
+        //                    ModelState.AddModelError("", "Invalid Username or Password");
+        //                    return View();
+        //                }
+        //                throw new ArgumentException("User doesn't exists");
+        //            }
+        //        }
+        //        catch (ArgumentException e)
+        //        {
+        //            ModelState.AddModelError("", e.Message);
+        //            return View();
+        //        }
+        //    }
+        //    return View();
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]

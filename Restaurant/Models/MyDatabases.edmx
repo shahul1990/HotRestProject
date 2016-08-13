@@ -13,7 +13,7 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Roles" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Cart">
           <Key>
@@ -44,6 +44,17 @@
           <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
           <Property Name="AlternateAdddress" Type="nvarchar(max)" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantDB.dbo.ExternalLogin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ExternalLogin">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderDisplayName" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProviderDisplayName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProviderUserId" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="GuestDetails">
           <Key>
@@ -79,6 +90,18 @@
           <Property Name="ImagePath" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantDB.dbo.LocalPasswordModel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LocalPasswordModel">
+          <Key>
+            <PropertyRef Name="OldPassword" />
+            <PropertyRef Name="NewPassword" />
+            <PropertyRef Name="ConfirmPassword" />
+          </Key>
+          <Property Name="OldPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NewPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'RestaurantDB.dbo.LoginModel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="LoginModel">
           <Key>
@@ -87,6 +110,7 @@ warning 6002: The table/view 'RestaurantDB.dbo.LoginModel' does not have a prima
           </Key>
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RememberMe" Type="bit" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -108,6 +132,30 @@ warning 6002: The table/view 'RestaurantDB.dbo.LoginModel' does not have a prima
           <Property Name="ItemId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RestaurantDB.dbo.RegisterExternalLoginModel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RegisterExternalLoginModel">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExternalLoginData" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RegisterModel">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Cart_ItemList">
           <End Role="ItemList" Type="Self.ItemList" Multiplicity="1" />
@@ -191,11 +239,34 @@ warning 6002: The table/view 'RestaurantDB.dbo.LoginModel' does not have a prima
           <EntitySet Name="ItemList" EntityType="Self.ItemList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegisterModel" EntityType="Self.RegisterModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExternalLogin" EntityType="Self.ExternalLogin" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ExternalLogin].[Provider] AS [Provider], 
+    [ExternalLogin].[ProviderDisplayName] AS [ProviderDisplayName], 
+    [ExternalLogin].[ProviderUserId] AS [ProviderUserId]
+    FROM [dbo].[ExternalLogin] AS [ExternalLogin]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LocalPasswordModel" EntityType="Self.LocalPasswordModel" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LocalPasswordModel].[OldPassword] AS [OldPassword], 
+    [LocalPasswordModel].[NewPassword] AS [NewPassword], 
+    [LocalPasswordModel].[ConfirmPassword] AS [ConfirmPassword]
+    FROM [dbo].[LocalPasswordModel] AS [LocalPasswordModel]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="LoginModel" EntityType="Self.LoginModel" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [LoginModel].[UserName] AS [UserName], 
-    [LoginModel].[Password] AS [Password]
+    [LoginModel].[Password] AS [Password], 
+    [LoginModel].[RememberMe] AS [RememberMe]
     FROM [dbo].[LoginModel] AS [LoginModel]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RegisterExternalLoginModel" EntityType="Self.RegisterExternalLoginModel" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RegisterExternalLoginModel].[UserName] AS [UserName], 
+    [RegisterExternalLoginModel].[ExternalLoginData] AS [ExternalLoginData]
+    FROM [dbo].[RegisterExternalLoginModel] AS [RegisterExternalLoginModel]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Cart_ItemList" Association="Self.FK_Cart_ItemList">
             <End Role="ItemList" EntitySet="ItemList" />
@@ -288,6 +359,11 @@ warning 6002: The table/view 'RestaurantDB.dbo.LoginModel' does not have a prima
           </AssociationSet>
           <EntitySet Name="Admins" EntityType="RestaurantDBModel.Admin" />
           <EntitySet Name="LoginModels" EntityType="RestaurantDBModel.LoginModel" />
+          <EntitySet Name="RegisterModels" EntityType="RestaurantDBModel.RegisterModel" />
+          <EntitySet Name="UserProfiles" EntityType="RestaurantDBModel.UserProfile" />
+          <EntitySet Name="ExternalLogins" EntityType="RestaurantDBModel.ExternalLogin" />
+          <EntitySet Name="LocalPasswordModels" EntityType="RestaurantDBModel.LocalPasswordModel" />
+          <EntitySet Name="RegisterExternalLoginModels" EntityType="RestaurantDBModel.RegisterExternalLoginModel" />
           </EntityContainer>
         <Association Name="FK_ItemList_ItemCategory1">
           <End Type="RestaurantDBModel.ItemCategory" Role="ItemCategory" Multiplicity="1" />
@@ -438,7 +514,7 @@ warning 6002: The table/view 'RestaurantDB.dbo.LoginModel' does not have a prima
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Roles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="LoginModel">
           <Key>
@@ -447,6 +523,48 @@ warning 6002: The table/view 'RestaurantDB.dbo.LoginModel' does not have a prima
           </Key>
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RememberMe" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="RegisterModel">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ExternalLogin">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderDisplayName" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderDisplayName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LocalPasswordModel">
+          <Key>
+            <PropertyRef Name="OldPassword" />
+            <PropertyRef Name="NewPassword" />
+            <PropertyRef Name="ConfirmPassword" />
+          </Key>
+          <Property Name="OldPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RegisterExternalLoginModel">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExternalLoginData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -549,7 +667,7 @@ warning 6002: The table/view 'RestaurantDB.dbo.LoginModel' does not have a prima
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="RestaurantDBModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -560,7 +678,51 @@ warning 6002: The table/view 'RestaurantDB.dbo.LoginModel' does not have a prima
           <EntitySetMapping Name="LoginModels">
             <EntityTypeMapping TypeName="RestaurantDBModel.LoginModel">
               <MappingFragment StoreEntitySet="LoginModel">
+                <ScalarProperty Name="RememberMe" ColumnName="RememberMe" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegisterModels">
+            <EntityTypeMapping TypeName="RestaurantDBModel.RegisterModel">
+              <MappingFragment StoreEntitySet="RegisterModel">
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="RestaurantDBModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExternalLogins">
+            <EntityTypeMapping TypeName="RestaurantDBModel.ExternalLogin">
+              <MappingFragment StoreEntitySet="ExternalLogin">
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="ProviderDisplayName" ColumnName="ProviderDisplayName" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocalPasswordModels">
+            <EntityTypeMapping TypeName="RestaurantDBModel.LocalPasswordModel">
+              <MappingFragment StoreEntitySet="LocalPasswordModel">
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+                <ScalarProperty Name="NewPassword" ColumnName="NewPassword" />
+                <ScalarProperty Name="OldPassword" ColumnName="OldPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegisterExternalLoginModels">
+            <EntityTypeMapping TypeName="RestaurantDBModel.RegisterExternalLoginModel">
+              <MappingFragment StoreEntitySet="RegisterExternalLoginModel">
+                <ScalarProperty Name="ExternalLoginData" ColumnName="ExternalLoginData" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
               </MappingFragment>
             </EntityTypeMapping>

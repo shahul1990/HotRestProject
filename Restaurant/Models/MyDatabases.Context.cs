@@ -35,5 +35,10 @@ namespace Restaurant.Models
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<LoginModel> LoginModels { get; set; }
+        public virtual DbSet<RegisterModel> RegisterModels { get; set; }
+        public virtual DbSet<UserProfile> UserProfiles { get; set; }
+        public virtual DbSet<ExternalLogin> ExternalLogins { get; set; }
+        public virtual DbSet<LocalPasswordModel> LocalPasswordModels { get; set; }
+        public virtual DbSet<RegisterExternalLoginModel> RegisterExternalLoginModels { get; set; }
     }
 }
