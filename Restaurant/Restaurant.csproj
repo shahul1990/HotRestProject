@@ -381,6 +381,7 @@
       <DependentUpon>MyDatabases.edmx</DependentUpon>
       <LastGenOutput>MyDatabases.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\BrassyDemo.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
